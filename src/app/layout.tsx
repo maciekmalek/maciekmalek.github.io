@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/Navbar/Navbar";
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { TooltipProvider } from "@/components/ui/tooltip"; // 1. Add this import
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Maciek Małek",
-  description: "Personal website of Maciek Małek, a software developer specializing in frontend development and architecture.",
+  description:
+    "Personal website of Maciek Małek, a software developer specializing in frontend development and architecture.",
 };
 
 export default function RootLayout({
@@ -26,13 +29,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning // 2. Good practice for dark mode to prevent hydration flicker
     >
-      <body className="min-h-full flex flex-col"><div className="grid grid-cols-2 grid-rows-1 gap-4">
-    <div className="row-span-2"><Navbar/></div>
-    <div className="col-span-1 row-span-2">{children}</div>
-</div>
-        </body>
+      <body className="font-sans min-h-full flex flex-col">
+        {/* 3. Wrap everything inside TooltipProvider */}
+        <TooltipProvider>
+          <SidebarProvider>
+            <AppSidebar />
+            <main className="flex-1">
+              {" "}
+              {/* 4. Added flex-1 to make the main content fill the space */}
+              <SidebarTrigger />
+              {children}
+            </main>
+          </SidebarProvider>
+        </TooltipProvider>
+      </body>
     </html>
   );
 }

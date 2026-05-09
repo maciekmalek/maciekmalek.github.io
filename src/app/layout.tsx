@@ -1,9 +1,13 @@
+import { AppSidebar } from "@/components/app-sidebar";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { AppSidebar } from "@/components/app-sidebar";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { TooltipProvider } from "@/components/ui/tooltip"; // 1. Add this import
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -30,19 +34,20 @@ export default function RootLayout({
     <html
       lang="en"
       className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      suppressHydrationWarning // 2. Good practice for dark mode to prevent hydration flicker
+      suppressHydrationWarning
     >
       <body className="font-sans min-h-full flex flex-col">
-        {/* 3. Wrap everything inside TooltipProvider */}
         <TooltipProvider>
           <SidebarProvider>
             <AppSidebar />
-            <main className="flex-1">
-              {" "}
-              {/* 4. Added flex-1 to make the main content fill the space */}
-              <SidebarTrigger />
-              {children}
-            </main>
+            <SidebarInset>
+              <header className="flex h-12 shrink-0 items-center gap-2 transition-[width,height] ease-linear ">
+                <div className="flex items-center gap-2 px-4">
+                  <SidebarTrigger className="-ml-1" />
+                </div>
+              </header>
+              <main className="flex-1">{children}</main>
+            </SidebarInset>
           </SidebarProvider>
         </TooltipProvider>
       </body>

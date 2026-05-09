@@ -3,9 +3,10 @@
 import * as React from "react";
 
 import { Nav } from "@/components/nav";
-import { Sidebar, SidebarContent, SidebarRail } from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent } from "@/components/ui/sidebar";
 import {
   ContactRoundIcon,
+  FileUserIcon,
   GitPullRequestArrowIcon,
   HouseIcon,
   LayersPlusIcon,
@@ -39,6 +40,11 @@ const data: LinkData[] = [
     icon: <ContactRoundIcon />,
     isExternal: true,
   },
+  {
+    name: "CV",
+    url: "/cv",
+    icon: <FileUserIcon />,
+  },
 ];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -47,8 +53,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <Nav nav={data} />
       </SidebarContent>
-
-      <SidebarRail />
     </Sidebar>
   );
 }

@@ -17,6 +17,7 @@ type LinkData = {
   url: string;
   icon: React.ReactNode;
   isExternal?: boolean;
+  isDownload?: boolean;
 };
 const data: LinkData[] = [
   {
@@ -42,8 +43,9 @@ const data: LinkData[] = [
   },
   {
     name: "CV",
-    url: "/cv",
+    url: "/Maciek_Malek_CV.pdf",
     icon: <FileUserIcon />,
+    isDownload: true,
   },
 ];
 

@@ -8,7 +8,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { SquareArrowOutUpRightIcon } from "lucide-react";
+import { DownloadIcon, SquareArrowOutUpRightIcon } from "lucide-react";
 
 export function Nav({
   nav,
@@ -18,6 +18,7 @@ export function Nav({
     url: string;
     icon: React.ReactNode;
     isExternal?: boolean;
+    isDownload?: boolean;
   }[];
 }) {
   const { isMobile } = useSidebar();
@@ -34,6 +35,11 @@ export function Nav({
                 {item.isExternal && (
                   <SidebarMenuBadge>
                     <SquareArrowOutUpRightIcon />
+                  </SidebarMenuBadge>
+                )}
+                {item.isDownload && (
+                  <SidebarMenuBadge>
+                    <DownloadIcon />
                   </SidebarMenuBadge>
                 )}
               </a>

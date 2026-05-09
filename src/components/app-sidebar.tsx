@@ -5,37 +5,47 @@ import * as React from "react";
 import { Nav } from "@/components/nav";
 import { Sidebar, SidebarContent, SidebarRail } from "@/components/ui/sidebar";
 import {
+  ContactRoundIcon,
   GitPullRequestArrowIcon,
   HouseIcon,
   LayersPlusIcon,
 } from "lucide-react";
 
-// This is sample data.
-const data = {
-  projects: [
-    {
-      name: "Home",
-      url: "/",
-      icon: <HouseIcon />,
-    },
-    {
-      name: "Github",
-      url: "/github",
-      icon: <GitPullRequestArrowIcon />,
-    },
-    {
-      name: "Tech Stack",
-      url: "/tech-stack",
-      icon: <LayersPlusIcon />,
-    },
-  ],
+type LinkData = {
+  name: string;
+  url: string;
+  icon: React.ReactNode;
+  isExternal?: boolean;
 };
+const data: LinkData[] = [
+  {
+    name: "Home",
+    url: "/",
+    icon: <HouseIcon />,
+  },
+  {
+    name: "Github",
+    url: "/github",
+    icon: <GitPullRequestArrowIcon />,
+  },
+  {
+    name: "Tech Stack",
+    url: "/tech-stack",
+    icon: <LayersPlusIcon />,
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/maciek-malek/",
+    icon: <ContactRoundIcon />,
+    isExternal: true,
+  },
+];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarContent>
-        <Nav nav={data.projects} />
+        <Nav nav={data} />
       </SidebarContent>
 
       <SidebarRail />

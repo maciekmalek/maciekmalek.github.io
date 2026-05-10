@@ -1,14 +1,12 @@
-import { FC } from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { FC } from "react";
 type Props = { link: string; name: string; description: string };
 
 export const GithubRepoCard: FC<Props> = ({ link, name, description }) => {
@@ -22,7 +20,6 @@ export const GithubRepoCard: FC<Props> = ({ link, name, description }) => {
       </CardContent>
       <CardFooter>
         <Link
-        
           href={link}
           target="_blank"
           rel="noopener noreferrer"

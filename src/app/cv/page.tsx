@@ -1,6 +1,15 @@
+import { DateSpan } from "@/components/DateSpan/DateSpan";
 import { ExperienceCard } from "@/components/ExperienceCard/ExperienceCard";
 import { TechStackLinks } from "@/components/TechStackLinks/TechStackLinks";
-import { ExperienceItems } from "@/const";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { education, experienceItems } from "@/const";
+import { Link } from "lucide-react";
 export default function CV() {
   return (
     <div>
@@ -27,9 +36,34 @@ export default function CV() {
         <TechStackLinks />
       </div>
       <h1>Experience</h1>
-      {Object.values(ExperienceItems).map((experience) => (
+      {Object.values(experienceItems).map((experience) => (
         <ExperienceCard key={experience.link} {...experience} />
       ))}
+      <h1>Education</h1>
+      <Card>
+        <CardHeader>
+          <CardTitle>{education.institution}</CardTitle>
+          <CardDescription>
+            <div className="flex justify-between">
+              <p>{`${education.degree} in ${education.field}, ${education.institution}, ${education.city}`}</p>
+              <DateSpan
+                startDate={education.startDate}
+                endDate={education.endDate}
+              />
+            </div>
+          </CardDescription>
+        </CardHeader>
+
+        <CardFooter>
+          <Link
+            href={education.link}
+            target="_blank"
+            className="text-blue-500 hover:underline"
+          >
+            {education.institution}
+          </Link>
+        </CardFooter>
+      </Card>
     </div>
   );
 }

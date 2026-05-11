@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { TechStackItems } from "@/const";
+import { techStackItems } from "@/const";
 import Link from "next/link";
 import { FC } from "react";
 import { TechKey } from "../../types";
@@ -9,7 +9,7 @@ type Props = {
 export const TechStackLinks: FC<Props> = ({ items }) => {
   return (
     <>
-      {Object.entries(TechStackItems)
+      {Object.entries(techStackItems)
         .filter(([key]) => !items || items.includes(key as TechKey))
         .map(([key, item]) => (
           <Link key={key} href={`/tech-stack/${item.slug}`}>

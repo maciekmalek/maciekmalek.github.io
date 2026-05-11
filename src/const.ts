@@ -1,6 +1,6 @@
-import { Experience } from "./types"
+import { Experience } from "./types";
 
-export const TechStackItems = {
+export const techStackItems = {
         JS:{name:"JavaScript / TypeScript",slug:"javascript-typescript"},
         HTML_CSS:{name:"HTML / CSS",slug:"html-css"},
         Git:{name:"Git",slug:"git"},
@@ -23,7 +23,7 @@ export const TechStackItems = {
         Github:{name:"Github",slug:"github"},
 } 
 
-export const ExperienceItems: { [key: string]: Experience } = {
+export const experienceItems: { [key: string]: Experience } = {
         "GPC":{
             "link":"https://www.gpcglobal.com",
             "position":"Software Engineer",
@@ -40,17 +40,38 @@ export const ExperienceItems: { [key: string]: Experience } = {
         },
         "Geeknauts":{
             "link":"https://www.geeknauts.com",
-            "position":"Frontend Developer",
+            "position":"Software Developer",
             "company":"Geeknauts",
             "description":"Worked on a variety of projects, including e-commerce platforms, internal tools, and client websites.",
             "achivements":[
               "Developed and tested web and mobile applications for various clients using modern JavaScript stack",
               "Assessed costs related to software dependencies and third-party integrations",
               "Mentored junior team members and consulted on project decisions",
-              "Worked in Scrum teams delivering features based on provided documentation,"],
+              "Worked in Scrum teams delivering features based on provided documentation"],
             "city":"Remote",
             "startDate":"February 2022",
             "endDate":"February 2025"
+        },
+        "Sofyne":{
+            "link":"https://sofynetech.com/",
+            "position":"Junior Software Consultant",
+            "company":"Sofyne Active Technology",
+            "description":"Worked on a variety of projects, including e-commerce platforms, internal tools, and client websites.",
+            "achivements":[
+              "Developed and tested web-based MES applications for manufacturing clients",
+              "Collaborated directly with clients on requirements and implementation"],
+            "city":"Remote",
+            "startDate":"January 2021",
+            "endDate":"February 2022"
         }
 }
         
+export const education = {
+"degree":"Bachelor of Science",
+"field":"Electronics and Telecommunications",
+"institution":"AGH University of Science and Technology",
+"city":"Kraków",
+"startDate":"October 2016",
+"endDate":"June 2020",
+"link":"https://iet.agh.edu.pl/kierunek-elektronika-i-telekomunikacja-agh/"
+} as const;

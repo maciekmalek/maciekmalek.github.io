@@ -9,6 +9,7 @@ import {
 import { Experience } from "@/types";
 import Link from "next/link";
 import { FC } from "react";
+import { DateSpan } from "../DateSpan/DateSpan";
 import { TechStackLinks } from "../TechStackLinks/TechStackLinks";
 
 export const ExperienceCard: FC<Experience> = ({
@@ -29,23 +30,7 @@ export const ExperienceCard: FC<Experience> = ({
         <CardDescription>
           <div className="flex justify-between">
             <p>{`${company}, ${city}`}</p>
-            <p>
-              <span>
-                {new Date(startDate).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                })}
-              </span>
-              -
-              <span>
-                {endDate
-                  ? new Date(endDate).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                    })
-                  : "Present"}
-              </span>
-            </p>
+            <DateSpan startDate={startDate} endDate={endDate} />
           </div>
         </CardDescription>
       </CardHeader>

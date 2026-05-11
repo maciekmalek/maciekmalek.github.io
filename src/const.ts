@@ -36,7 +36,8 @@ export const experienceItems: { [key: string]: Experience } = {
           "Created OpenAPI type generation tooling used across 6+ micro-frontends",
           "Established E2E testing infrastructure with Playwright and MSW mocking patterns",],
             "city":"Kraków",
-            "startDate":"February 2025"
+            "startDate":"February 2025",
+            "endDate":"April 2025"
         },
         "Geeknauts":{
             "link":"https://www.geeknauts.com",

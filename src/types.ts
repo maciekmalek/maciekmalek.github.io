@@ -1,6 +1,6 @@
-import { TechStackItems } from "@/const";
+import { techStackItems } from "@/const";
 
-export type TechKey = keyof typeof TechStackItems;
+export type TechKey = keyof typeof techStackItems;
 
 export type Experience = {
   position: string;

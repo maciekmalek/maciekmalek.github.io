@@ -36,9 +36,11 @@ export default function CV() {
         <TechStackLinks />
       </div>
       <h1>Experience</h1>
-      {Object.values(experienceItems).map((experience) => (
-        <ExperienceCard key={experience.link} {...experience} />
-      ))}
+      <div className="flex flex-col gap-4 mb-4">
+        {Object.values(experienceItems).map((experience) => (
+          <ExperienceCard key={experience.link} {...experience} />
+        ))}
+      </div>
       <h1>Education</h1>
       <Card>
         <CardHeader>

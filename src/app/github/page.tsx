@@ -11,7 +11,7 @@ export default function Github() {
       >
         GitHub
       </a>
-      <div>
+      <div className="gap-4 mt-4 flex flex-col">
         In my off time I've be working on some personal projects. Here are some
         of them:
         <GithubRepoCard
@@ -27,7 +27,7 @@ export default function Github() {
         <GithubRepoCard
           link="https://github.com/maciekmalek/mfe-architecture-showcase"
           name="Micro Frontend Showcase"
-          description="A showcase of micro frontend architecture - stale, it was and idea but never fully realized"
+          description="A showcase of micro frontend architecture - stale, it was an idea but never fully realized"
         />
       </div>
     </div>
